@@ -35,7 +35,7 @@ namespace TxtSplitter
             foreach (string filepath in files)
             {
                 string[] names = filepath.Split('\\');
-                string name = names[names.Length - 1];
+                string name = names[names.Length - 1].Replace(".txt", "");
                 Console.WriteLine("Reading file nº"+filen+" "+name);
                 StreamReader sr = new StreamReader(filepath);
                 Task t = sr.ReadToEndAsync().ContinueWith((x) => SplitFile(x.Result, name, splittingMark, newPath));
