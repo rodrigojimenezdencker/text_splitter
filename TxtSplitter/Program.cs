@@ -23,7 +23,7 @@ namespace TxtSplitter
 
             if (Console.ReadKey(true).Key != ConsoleKey.Y)
             {
-                Console.WriteLine("EXITING");
+                End();
                 return;
             }
 
@@ -44,6 +44,13 @@ namespace TxtSplitter
 
             Task.WaitAll(filecontents.ToArray());
             Console.WriteLine("\nFinished splitting");
+            End();
+        }
+
+        static void End()
+        {
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey(true);
         }
 
         static Task SplitFile(string filecontent, string file, string splittingMark, string path)
