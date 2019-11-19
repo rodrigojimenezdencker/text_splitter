@@ -58,7 +58,8 @@ namespace TxtSplitter
             string[] splittedArray = filecontent.Split(splittingMark);
             for (int i = 0; i < splittedArray.Length; i++)
             {
-                splittedArray[i] = splittedArray[i].Replace("\r\n", "");
+                splittedArray[i] = splittedArray[i].Trim();
+                //splittedArray[i] = splittedArray[i].Replace("\r\n", "");
             }
             List<Task> tasks = new List<Task>();
 
